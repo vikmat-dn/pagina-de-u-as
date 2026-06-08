@@ -1,0 +1,421 @@
+/* ======== ESTILO ATELIER CON FONDO ACUARELA ROSA VIBRANTE Y ESFERA INTERACTIVA ======== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    /* Fondo con degradado fluido estilo nubes de acuarela rosa que viste toda la web */
+    background: linear-gradient(135deg, #fff3f5 0%, #ffd1d7 40%, #ffbccc 70%, #fff0f2 100%);
+    background-attachment: fixed;
+    color: #382c2a;
+    overflow-x: hidden;
+    perspective: 1600px;
+}
+
+/* NAVBAR LUXURY FRANCÉS */
+.saturn-nav {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 6%;
+    z-index: 1000;
+    background: rgba(255, 243, 245, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(235, 140, 153, 0.25);
+}
+
+.logo-text {
+    font-family: 'Cinzel', serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #1e1716;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+.logo-text span {
+    color: #d4af37;
+    font-weight: 400;
+}
+
+.nav-links-desktop {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #382c2a;
+}
+.nav-links-desktop span {
+    margin: 0 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.nav-links-desktop span:hover {
+    color: #eb8c99;
+}
+
+.status-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #9c8986;
+    border-left: 2px solid #eb8c99;
+    padding-left: 15px;
+}
+
+/* 🪐 ENTORNO HERO MARAVILLOSO CON EFECTO DE ESPACIO PROFUNDO */
+.hero-saturn {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transform-style: preserve-3d;
+    overflow: hidden;
+}
+
+/* ✨ LA ESFERA PLANETARIA SAGRADA DORADA (Dibujada impecable en código) */
+.sacred-golden-sphere {
+    position: absolute;
+    width: 580px;
+    height: 580px;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    /* Construcción de las líneas geométricas del astrolabio mediante gradientes concéntricos */
+    background: 
+        radial-gradient(circle, transparent 55%, rgba(212, 175, 55, 0.15) 56%, transparent 58%),
+        linear-gradient(0deg, transparent 49%, rgba(212, 175, 55, 0.25) 50%, transparent 51%),
+        linear-gradient(90deg, transparent 49%, rgba(212, 175, 55, 0.25) 50%, transparent 51%),
+        radial-gradient(circle, transparent 30%, rgba(212, 175, 55, 0.2) 31%, transparent 33%);
+    border: 2px solid rgba(212, 175, 55, 0.45);
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.15), inset 0 0 50px rgba(212, 175, 55, 0.1);
+    z-index: 1;
+    pointer-events: none;
+    /* Transición de transformación optimizada para que la caída con el mouse sea líquida */
+    transition: transform 0.15s ease-out; 
+}
+
+/* Capa interior que añade la red elíptica de fondo */
+.sacred-golden-sphere::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px dashed rgba(212, 175, 55, 0.3);
+    transform: scale(0.75) rotate(45deg);
+}
+
+.saturn-system {
+    position: relative;
+    text-align: center;
+    transform-style: preserve-3d;
+    width: 100%;
+    max-width: 1000px;
+    z-index: 2; /* Por encima de la esfera dorada */
+}
+
+/* 👑 ANILLO DE SATURNO DEL TITULO CON REVELACIÓN 3D ORIGINAL */
+.saturn-ring-container {
+    position: absolute;
+    width: 840px;
+    height: 240px;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(72deg) rotateY(-8deg); 
+    transform-style: preserve-3d;
+    pointer-events: none;
+}
+
+.saturn-ring-ellipse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3.5px solid rgba(212, 175, 55, 0.65);
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.35);
+}
+
+/* Envoltura que traslada la corona */
+.orbiting-crown-wrapper {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    animation: saturnOrbitCorrection 8.5s infinite linear;
+}
+
+.saturn-crown {
+    font-size: 3.2rem;
+    color: #d4af37;
+    transform: rotateX(-72deg) rotateY(8deg); 
+    filter: drop-shadow(0 0 4px #ffffff) drop-shadow(0 10px 25px rgba(212, 175, 55, 0.6));
+}
+
+/* Algoritmo de Órbita limpia: Cruza adelante y se oculta atrás perfectamente */
+@keyframes saturnOrbitCorrection {
+    0% { transform: translate(395px, 95px) rotateZ(0deg) translate(-395px, -95px) rotateZ(0deg); z-index: 5; }
+    25% { z-index: 5; }
+    49% { z-index: 5; }
+    50% { transform: translate(395px, 95px) rotateZ(180deg) translate(-395px, -95px) rotateZ(-180deg); z-index: -1; }
+    75% { z-index: -1; }
+    99% { z-index: -1; }
+    100% { transform: translate(395px, 95px) rotateZ(360deg) translate(-395px, -95px) rotateZ(-360deg); z-index: 5; }
+}
+
+/* Polvo de hadas */
+.fairy-sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px 3px rgba(235, 140, 153, 0.9);
+    animation: sparkFlicker 1.8s infinite ease-in-out;
+}
+.fs-1 { top: -12px; left: 8px; }
+.fs-2 { bottom: -6px; right: 6px; animation-delay: 0.4s; }
+.fs-3 { top: 18px; left: 45px; animation-delay: 0.9s; }
+
+@keyframes sparkFlicker {
+    0%, 100% { transform: scale(0.8); opacity: 0.4; }
+    50% { transform: scale(1.4); opacity: 1; }
+}
+
+/* NOMBRE CENTRAL FLOTANTE (LEVITACIÓN MAGNÉTICA) */
+.floating-brand-wrap {
+    transform: translateZ(80px);
+    animation: magneticFloat 4.5s infinite ease-in-out;
+}
+
+.floating-title {
+    font-family: 'Cinzel', serif;
+    font-size: 7rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 14px;
+    /* Degradado de fuerte a rosa satinado */
+    background: linear-gradient(180deg, #1e1716 35%, #eb8c99 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 15px 30px rgba(235, 140, 153, 0.3));
+}
+
+@keyframes magneticFloat {
+    0%, 100% { transform: translateY(0px) translateZ(80px); }
+    50% { transform: translateY(-16px) translateZ(110px); }
+}
+
+.saturn-slogan {
+    font-size: 1.1rem;
+    letter-spacing: 6px;
+    color: #4a3e3c;
+    margin-top: 45px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.btn-saturn-rose {
+    display: inline-block;
+    margin-top: 45px;
+    padding: 18px 45px;
+    border: 1px solid #eb8c99;
+    background: #1e1716;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    transition: 0.4s ease;
+}
+.btn-saturn-rose:hover {
+    background: #eb8c99;
+    color: #ffffff;
+    box-shadow: 0 15px 40px rgba(235, 140, 153, 0.4);
+    transform: translateY(-4px);
+}
+
+/* INDICADOR */
+.scroll-cosmic {
+    position: absolute;
+    bottom: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    color: #6e5f5d;
+    font-weight: 700;
+}
+.cosmic-line {
+    width: 2px;
+    height: 50px;
+    background: linear-gradient(#eb8c99, transparent);
+}
+
+/* SECCIONES COSMICAS */
+.cosmic-section {
+    padding: 140px 8%;
+    position: relative;
+}
+.bg-milkyway { background: rgba(255, 255, 255, 0.4); backdrop-filter: blur(5px); }
+
+.cosmic-tag {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: #d4af37;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.section-headline {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #1e1716;
+    border-bottom: 1px solid rgba(235, 140, 153, 0.3);
+    padding-bottom: 20px;
+    margin-bottom: 80px;
+}
+.text-right { text-align: right; }
+
+/* SECCIÓN SERVICIOS */
+.services-saturn-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 40px;
+}
+.saturn-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: 14px;
+    border-bottom: 4px solid #eb8c99;
+    box-shadow: 0 20px 50px rgba(235, 140, 153, 0.08);
+    transition: 0.4s ease;
+}
+.saturn-card:hover {
+    transform: translateY(-6px);
+    background: #ffffff;
+    box-shadow: 0 30px 65px rgba(235, 140, 153, 0.2);
+}
+.card-num { font-size: 0.8rem; color: #a89491; font-weight: 700; margin-bottom: 15px;}
+.saturn-card h3 { font-family: 'Cinzel', serif; font-size: 1.5rem; margin-bottom: 15px; color: #1e1716;}
+.saturn-card p { color: #544643; font-size: 0.95rem; line-height: 1.7; }
+.price { margin-top: 25px; font-weight: 700; font-size: 1.1rem; color: #1e1716; }
+
+/* 🌌 CONSTELACIÓN DE CÍRCULOS (GALERÍA ASIMÉTRICA CON TUS 6 IMÁGENES) */
+.constellation-container {
+    position: relative;
+    height: 850px;
+    margin-top: 50px;
+}
+
+.planet-item {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.circle-image-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 25px 50px rgba(235, 140, 153, 0.25);
+}
+
+.circle-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.planet-item:hover {
+    transform: scale(1.08) translateY(-10px) !important;
+    z-index: 50;
+}
+.planet-item:hover .circle-image-wrapper {
+    border-color: #eb8c99;
+    box-shadow: 0 35px 70px rgba(235, 140, 153, 0.4);
+}
+
+.planet-meta {
+    margin-top: 15px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #4a3e3c;
+    text-align: center;
+}
+
+/* Tamaños */
+/* REEMPLAZA CON ESTOS NUEVOS TAMAÑOS MÁS GRANDES */
+.size-xl { width: 420px; height: 420px; }  /* El más grande (Foto 1) */
+.size-lg { width: 360px; height: 360px; }  /* Grande (Fotos 3 y 6) */
+.size-md { width: 300px; height: 300px; }  /* Mediano (Fotos 2 y 5) */
+.size-sm { width: 240px; height: 240px; }  /* El más chico (Foto 4) */
+/* Posiciones */
+.position-1 { top: 5%; left: 5%; }
+.position-2 { top: 10%; right: 8%; }
+.position-3 { top: 38%; left: 38%; }
+.position-4 { bottom: 10%; left: 6%; }
+.position-5 { bottom: 25%; right: 36%; }
+.position-6 { bottom: 5%; right: 6%; }
+
+/* CONTACTO PANEL */
+.panel-saturn-glass {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(235, 140, 153, 0.35);
+    border-radius: 16px;
+    padding: 60px;
+    text-align: center;
+    box-shadow: 0 40px 80px rgba(235, 140, 153, 0.12);
+}
+.panel-saturn-glass h3 { font-family: 'Cinzel', serif; font-size: 2.2rem; margin-bottom: 40px; color: #1e1716;}
+.grid-contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: left; }
+.contact-node label { font-size: 0.7rem; letter-spacing: 2px; color: #d4af37; font-weight: 700; display: block; margin-bottom: 8px;}
+.contact-node p, .contact-node a { color: #1e1716; font-weight: 600; text-decoration: none; font-size: 1rem;}
+.link-rose { border-bottom: 1px solid #eb8c99; }
+
+/* ☕ EL MARAVILLOSO FOOTER EXCLUSIVO */
+.saturn-footer {
+    background: #ffffff;
+    text-align: center;
+    padding: 50px;
+    border-top: 1px solid rgba(235, 140, 153, 0.2);
+}
+.saturn-footer p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 5px;
+    color: #1e1716;
+}
+
+/* 🌀 ANIMACIÓN AOS CUSTOM DE ENTRADA HERO */
+[data-aos="zoom-out-spatial"] {
+    transform: scale(1.1) rotateX(10deg);
+    opacity: 0;
+    transition-property: transform, opacity;
+}
+[data-aos="zoom-out-spatial"].aos-animate {
+    transform: scale(1) rotateX(0deg);
+    opacity: 1;
+}
