@@ -20,3 +20,14 @@ document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", 
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
 }));
+
+// Filtros de la galería por categoría (Uñas / Lashista / Cabello)
+document.querySelectorAll(".filter-btn").forEach(btn => btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    const f = btn.dataset.filter;
+    document.querySelectorAll(".gallery-card").forEach(card => {
+        card.style.display = (f === "all" || card.dataset.cat === f) ? "" : "none";
+    });
+    if (window.AOS) AOS.refresh();
+}));
